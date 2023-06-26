@@ -1,2 +1,6 @@
 streamlit
 google-cloud-firestore
+json
+request
+wikipedia
+uuid
