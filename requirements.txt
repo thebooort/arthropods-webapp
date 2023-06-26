@@ -1,7 +1,4 @@
 streamlit
 google-cloud-firestore
-json
 request
-wikipedia
-uuid
 google-oauth2-tool
