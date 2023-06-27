@@ -4,3 +4,4 @@ requests
 wikipedia
 uuid
 google-oauth2-tool
+openpyxl
