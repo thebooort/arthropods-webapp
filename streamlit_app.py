@@ -33,7 +33,7 @@ st.sidebar.markdown('## Selecciona una pestaña')
   # Replace with the path to your logo image
 
 # Add tabs to the sidebar
-tabs = ["¿Cómo funciona?", "Tu nivel de experiencia","App", "Contacto"]
+tabs = ["¿Cómo funciona?", "App", "Contacto"]
 selected_tab = st.sidebar.radio("Selecciona una", tabs)
 st.sidebar.image("images/ugrlogo.png", use_column_width=True)
 
@@ -58,19 +58,20 @@ if selected_tab == "¿Cómo funciona?":
             
     # Add any additional information here
 
+
+
+elif selected_tab == "App":
 # Display content based on the selected tab
-elif selected_tab == "Tu nivel de experiencia":
     st.write("¿Estás preparadx? Antes de continuar describe tu nivel de conocimiento de insectos del 1 al 10.")
     st.write("1: No tengo ni idea")
     st.write("10: Soy un experto")
     # Add your app content here
     user_expertise = st.number_input("¡Describe tu nivel de conocimiento de insectos!", min_value=1, max_value=10, step=1)
-    submit1 = st.button("¡Hecho!")
-    if submit1:
-        # go to the App tab
-        st.experimental_rerun()
 
-elif selected_tab == "App":
+    if user_expertise <5:
+        st.write("Tu nivel de conocimientos es bajo. No te preocupes, te ayudaremos con la descripción mostrandote un diagrama para que sepas cómo nombrar diferentes partes comunes de los artrópodos.")
+        st.image("image/esquema de insecto basico.png", use_column_width=True)
+
 
     # get a random row from  df
     df = pd.read_excel('https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/database/animales_filtered.xlsx')
@@ -109,16 +110,9 @@ elif selected_tab == "App":
 
     # add text from the df
     st.write('Estas viendo un especimen de   ', random_row['Género'].to_string(index=False), ' ', random_row['Especie'].to_string(index=False))
-    descri = random_row['Descripción'].to_string(index=False)
-    # remove extra spaces
-    descri = descri.strip()
-    # remove extra lines
-    descri = descri.replace('\n', ' ')
-    # remove extra tabs
-    descri = descri.replace('\t', ' ')
-    # remove extra spaces
-    descri = descri.replace('  ', ' ')
-    st.write(descri)
+    
+    
+
 
 
 
@@ -142,7 +136,7 @@ elif selected_tab == "App":
     print(user_description)
     print(submit)
     print("aqui")
-    if submit:
+    if user_description and user_expertise and submit:
         # Authenticate to Firestore with the JSON account key.
         print('¡Enviado info a la base de datos!')
         key_dict = json.loads(st.secrets["textkey"])
@@ -154,13 +148,26 @@ elif selected_tab == "App":
         doc_ref.set({
         'Description': user_description,
         'Expertise': user_expertise,
-        'Family': random_row['Familia'],
-        'Genus': random_row['Género'],
-        'Order': random_row['Orden'],
-        'Species': random_row['Especie'],
-        'class': random_row['Clase'],
+        'Family': random_row['Familia'].to_string(index=False),
+        'Genus': random_row['Género'].to_string(index=False),
+        'Order': random_row['Orden'].to_string(index=False),
+        'Species': random_row['Especie'].to_string(index=False),
+        'class': random_row['Clase'].to_string(index=False),
         'link_to_photo': photo_url
         })
+        st.write("¡Gracias por tu colaboración!")
+        st.write("Puedes segui jugando enviando cuantas descripciones quieras :smile:")
+        st.write("Aquí te dejamos una descripción generalista del animal que acabas de ver para que puedas aprender algo más sobre él:")
+        descri = random_row['Descripción'].to_string(index=False)
+        # remove extra spaces
+        descri = descri.strip()
+        # remove extra lines
+        descri = descri.replace('\n', ' ')
+        # remove extra tabs
+        descri = descri.replace('\t', ' ')
+        # remove extra spaces
+        descri = descri.replace('  ', ' ')
+        st.write(descri)
 
 elif selected_tab == "Contacto":
     st.write("Welcome to the Contact tab!")
