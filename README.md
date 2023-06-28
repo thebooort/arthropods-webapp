@@ -1,6 +1,6 @@
 
 # Web App for "A.T.L.A.S." - Arthropod Textual Language Analysis System
-![logo](https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/images/logobicho.png)
+![logo](https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/images/logov3.png)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8089482.svg)](https://doi.org/10.5281/zenodo.8089482)
 

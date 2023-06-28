@@ -23,10 +23,11 @@ from io import BytesIO
 import uuid
 
 
-logo_image = "images/logobicho.png"
+logo_image = "images/logov3.png"
 
-st.title("¡Descíbeme ese bichejo!")
-st.sidebar.markdown('# ¡Descíbeme ese bichejo!')
+st.title("Proyecto A.T.L.A.S. - Arthropod Textual Language Analysis System")
+st.markdown(" #### Sistema de análisis textual de descripciones de artrópodos")
+st.sidebar.markdown("# Proyecto A.T.L.A.S.")
 st.sidebar.image(logo_image, use_column_width=True)
 # Add a logo or image to the sidebar
 st.sidebar.markdown('## Selecciona una pestaña')
@@ -39,7 +40,7 @@ st.sidebar.image("images/ugrlogo.png", use_column_width=True)
 
 if selected_tab == "¿Cómo funciona?":
     # add the logo small
-    image_url = "https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/images/logobicho.png" 
+    image_url = "https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/images/logov3.png" 
     image_width = 200
     centered_image_html = f"""
 <div style="display: flex; justify-content: center;">
@@ -48,7 +49,7 @@ if selected_tab == "¿Cómo funciona?":
 """
 
     st.markdown(centered_image_html, unsafe_allow_html=True)
-    st.subheader("'Descíbeme ese bichejo' es un proyecto de UGRITAI (Universidad de Granada).")
+    st.subheader("A.T.L.A.S. es un proyecto de UGRITAI (Universidad de Granada).")
     st.markdown("## ¿Cuál es nuestro objetivo?")
     st.markdown("El objetivo de este proyecto es desarrollar una aplicación que permita identificar especies de artrópodos a partir de una descripción en lenguaje natural. Para ello, se ha creado una base de datos con información de 1.000 especies de artrópodos de la Península Ibérica. Esta base de datos se ha creado a partir de la información disponible en la plataforma [iNaturalist](https://www.inaturalist.org/).")
     st.markdown("## ¿Cómo funciona?")
@@ -162,9 +163,19 @@ elif selected_tab == "App":
         st.write(descri)
 
 elif selected_tab == "Contacto":
+    image_url = "https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/images/logov3.png" 
+    image_width = 200
+    centered_image_html = f"""
+<div style="display: flex; justify-content: center;">
+    <img src="{image_url}" style="width: {image_width}px;">
+</div>
+"""
+
+    st.markdown(centered_image_html, unsafe_allow_html=True)
     # Add a title and description for the contact page
     st.title("Contacto")
     st.write("Dudas o sugerencias? ¡Escribenos!")
+    # add the logo small
 
     # Add contact information
     st.header("Informacion de contacto")
