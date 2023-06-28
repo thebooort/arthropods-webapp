@@ -51,10 +51,11 @@ st.markdown(centered_image_html, unsafe_allow_html=True)
 # Add a title and description for the contact page
 st.title("Media para difundir en redes sociales")
 
-image_url = "https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/images/qr-codefinal.png" 
+image_url = "https://raw.githubusercontent.com/thebooort/arthropods-webapp/main/images/QR.png" 
 image_width = 400
 centered_image_html = f"""
 <div style="display: flex; justify-content: center;">
 <img src="{image_url}" style="width: {image_width}px;">
 </div>
 """
+st.markdown(centered_image_html, unsafe_allow_html=True)
