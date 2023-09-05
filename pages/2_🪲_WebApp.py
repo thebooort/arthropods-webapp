@@ -96,7 +96,7 @@ st.write('Estas viendo un especimen de   ', random_row['Género'].to_string(inde
 # expertise level
 
 # Create a text input field
-user_description = st.text_input("¡Describe el animal que estás viendo!", max_chars=500)
+user_description = st.text_input("¡Describe el animal que estás viendo!", max_chars=500,key="user_description1")
 
 submit = st.button("¡He terminado!")
 
@@ -122,7 +122,7 @@ if user_description and user_expertise and submit:
 
 
     user_description=""
-    user_description = st.text_input("¡Describe el animal que estás viendo!", max_chars=500,value=user_description)
+    user_description = st.text_input("¡Describe el animal que estás viendo!", max_chars=500,value=user_description,key="user_description")
     st.write("¡Gracias por tu colaboración!")
     st.write("Puedes segui jugando enviando cuantas descripciones quieras :smile:")
     st.write("Aquí te dejamos una descripción generalista del animal que acabas de ver para que puedas aprender algo más sobre él:")
