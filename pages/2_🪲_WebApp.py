@@ -125,15 +125,15 @@ if user_description and user_expertise and submit:
     user_description = st.text_input("¡Describe el animal que estás viendo!", max_chars=500,value=user_description,key="user_description")
     st.write("¡Gracias por tu colaboración!")
     st.write("Puedes segui jugando enviando cuantas descripciones quieras :smile:")
-    st.write("Aquí te dejamos una descripción generalista del animal que acabas de ver para que puedas aprender algo más sobre él:")
-    descri = random_row['Descripción'].to_string(index=False)
-    # remove extra spaces
-    descri = descri.strip()
-    # remove extra lines
-    descri = descri.replace('\n', ' ')
-    # remove extra tabs
-    descri = descri.replace('\t', ' ')
-    # remove extra spaces
-    descri = descri.replace('  ', ' ')
-    st.write(descri)
+    # st.write("Aquí te dejamos una descripción generalista del animal que acabas de ver para que puedas aprender algo más sobre él:")
+    # descri = random_row['Descripción'].to_string(index=False)
+    # # remove extra spaces
+    # descri = descri.strip()
+    # # remove extra lines
+    # descri = descri.replace('\n', ' ')
+    # # remove extra tabs
+    # descri = descri.replace('\t', ' ')
+    # # remove extra spaces
+    # descri = descri.replace('  ', ' ')
+    # st.write(descri)
 
